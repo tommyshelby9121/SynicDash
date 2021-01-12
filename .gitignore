@@ -1,0 +1,8 @@
+# IDE Settings
+.idea
+
+# NPM
+node_modules
+
+# Env
+.env
