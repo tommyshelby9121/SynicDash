@@ -1,0 +1,19 @@
+{
+  "name": "@synic/dashboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tommyshelby9121/SynicDash.git"
+  },
+  "author": "Sycrixx",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/tommyshelby9121/SynicDash/issues"
+  },
+  "homepage": "https://github.com/tommyshelby9121/SynicDash#readme"
+}
