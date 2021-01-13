@@ -47,4 +47,16 @@ module.exports = (passport:any) => {
     passport.serializeUser((user:any, done:any) => {
        done(null, user.discordId);
     });
+
+    // Deserialize User
+    passport.deserializeUser(async (discordId:any, done:any) => {
+       try {
+           const user = await User.findOne({ discordId });
+           return user ? done(null, user) : done(null, null);
+       }
+       catch (err) {
+           console.error(err);
+           done(err, null);
+       }
+    });
 }
