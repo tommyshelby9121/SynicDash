@@ -6,7 +6,8 @@
   "scripts": {
     "start": "cross-env NODE_ENV=production node dist/app.js",
     "dev": "cross-env NODE_ENV=development nodemon src/app.ts",
-    "build": "tsc -p ."
+    "build": "tsc -p .",
+    "sass": "node-sass -w src/public/scss/ -o src/public/css/ --recursive"
   },
   "repository": {
     "type": "git",
