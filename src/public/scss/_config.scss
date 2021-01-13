@@ -1,0 +1,15 @@
+// Import Font
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif !important;
+  background-color: #283747 !important;
+  color: white !important;
+}
