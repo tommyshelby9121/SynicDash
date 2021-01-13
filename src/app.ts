@@ -2,8 +2,12 @@ import { config } from "dotenv";
 config();
 import express, { Application } from "express";
 import expressLayouts from "express-ejs-layouts";
+import session from "express-session";
 import logger from "morgan";
+import cookieParser from "cookie-parser";
+import { connection } from "mongoose";
 import passport from "passport";
+const MongoStore = require("connect-mongo")(session);
 import connectDB from "./database/connection";
 
 // Init Express
@@ -28,6 +32,22 @@ app.use(express.urlencoded({
     extended: false,
 }));
 app.use(express.json());
+
+// Cookie Parser
+app.use(cookieParser());
+
+// Sessions
+app.use(session({
+    secret: process.env.EXPRESS_SESSION_SECRET!,
+    cookie: {
+        maxAge: 60000 * 60 * 24
+    },
+    resave: false,
+    saveUninitialized: false,
+    store: new MongoStore({
+       mongooseConnection: connection,
+    }),
+}));
 
 // View Engine
 app.use(expressLayouts);
