@@ -1,6 +1,7 @@
 import { config } from "dotenv";
 config();
 import express, { Application } from "express";
+import expressLayouts from "express-ejs-layouts";
 import logger from "morgan";
 import connectDB from "./database/connection";
 
@@ -23,6 +24,12 @@ app.use(express.urlencoded({
     extended: false,
 }));
 app.use(express.json());
+
+// View Engine
+app.use(expressLayouts);
+app.set("views", "./src/views");
+app.set("layout", "layouts/master");
+app.set("view engine", "ejs");
 
 // Routes
 import index from "./routes/index";
