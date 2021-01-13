@@ -42,4 +42,9 @@ module.exports = (passport:any) => {
             return done(err, null);
         }
     }));
+
+    // Serialize User
+    passport.serializeUser((user:any, done:any) => {
+       done(null, user.discordId);
+    });
 }
