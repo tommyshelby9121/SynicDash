@@ -1,5 +1,6 @@
 import { config } from "dotenv";
 config();
+import { join } from "path";
 import express, { Application } from "express";
 import expressLayouts from "express-ejs-layouts";
 import session from "express-session";
@@ -62,6 +63,9 @@ app.use(passport.session());
 // Routes
 import index from "./routes/index";
 app.use("/", index);
+
+// Static Folder
+app.use(express.static(join(__dirname, "./public")));
 
 // Define Port
 const port:string|number = process.env.PORT || 3000;
